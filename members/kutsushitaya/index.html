@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介 | 靴下屋 (NAGOMI)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Zen Maru Gothic"', 'sans-serif'],
+                        en: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            900: '#881337',
+                        },
+                        accent: {
+                            yellow: '#facc15',
+                            purple: '#a855f7',
+                            emerald: '#10b981',
+                        }
+                    },
+                    animation: {
+                        'bounce-short': 'bounce 0.8s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(3deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CSS Custom Styles for Canvas dynamic background */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .board-pattern {
+            background-image: radial-gradient(#e11d48 0.75px, transparent 0.75px), radial-gradient(#e11d48 0.75px, #fdf2f8 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-800 font-sans min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-6 overflow-x-hidden">
+<div style="width:100%;max-width:1080px;margin:0 auto;padding:12px 16px;box-sizing:border-box;text-align:left;position:relative;z-index:40"><a href="../../" style="display:inline-block;padding:6px 14px;border-radius:999px;background:#ffffff;color:#333333;font:700 13px/1.6 'Hiragino Sans','Noto Sans JP',sans-serif;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.18)">← メンバー図鑑に戻る</a></div>
+
+    <!-- Ambient background effects -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-rose-500 rounded-full filter blur-3xl opacity-30 animate-pulse-glow"></div>
+        <div class="absolute top-1/2 -right-20 w-80 h-80 bg-purple-500 rounded-full filter blur-3xl opacity-25 animate-pulse-glow" style="animation-delay: 1s;"></div>
+        <div class="absolute -bottom-20 left-10 w-80 h-80 bg-amber-400 rounded-full filter blur-3xl opacity-20 animate-pulse-glow" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Main Mobile Container -->
+    <main class="w-full max-w-md relative z-10 my-auto">
+        
+        <!-- Header / Affiliation Badge -->
+        <div class="text-center mb-4">
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-800/80 text-rose-400 font-bold text-xs tracking-wider border border-rose-500/30 backdrop-blur-md shadow-lg">
+                <i class="fa-solid font-en fa-users-rays text-rose-400"></i> NAGOMI
+            </span>
+        </div>
+
+        <!-- Main Card Envelope -->
+        <div class="glass-card rounded-3xl shadow-2xl p-6 sm:p-8 border border-white/60 relative overflow-hidden">
+            
+            <!-- Floating Board Game Dice Decor -->
+            <div class="absolute -right-4 -top-4 text-slate-200/50 text-7xl select-none pointer-events-none animate-float">
+                <i class="fa-solid fa-dice-d20"></i>
+            </div>
+
+            <!-- Profile Header -->
+            <div class="flex flex-col items-center text-center relative z-10">
+                <!-- Avatar Icon -->
+                <div class="relative group cursor-pointer mb-3">
+                    <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-rose-500 via-pink-500 to-amber-400 p-1 shadow-xl transform transition-transform duration-300 group-hover:scale-105">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex flex-col items-center justify-center text-white relative overflow-hidden">
+                            <!-- SVG Decorative Socks Icon -->
+                            <i class="fa-solid fa-socks text-4xl text-rose-400 mb-1 animate-bounce-short"></i>
+                            <span class="text-[10px] font-en tracking-widest text-slate-400 uppercase">Profile</span>
+                        </div>
+                    </div>
+                    <!-- Status Badge -->
+                    <span class="absolute bottom-1 right-1 bg-amber-400 text-slate-900 text-xs font-black px-2 py-0.5 rounded-full shadow border-2 border-white">
+                        🎲 思考中
+                    </span>
+                </div>
+
+                <!-- Nickname -->
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight flex items-center gap-2 justify-center">
+                    靴下屋
+                </h1>
+                
+                <!-- Faculty / Department -->
+                <div class="mt-2 inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-lg text-xs font-bold border border-slate-200/80">
+                    <i class="fa-solid fa-graduation-cap text-rose-500 mr-1"></i> 社会システム経営学環
+                </div>
+            </div>
+
+            <!-- Content Details Grid -->
+            <div class="mt-6 space-y-3 relative z-10">
+                
+                <!-- Card 1: 好きなもの -->
+                <div class="bg-white/80 p-4 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg font-bold shrink-0">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] font-bold text-rose-400 uppercase tracking-wider">Favorite</p>
+                            <p class="text-base font-bold text-slate-800">身内</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: 最近ハマっていること -->
+                <div class="bg-white/80 p-4 rounded-2xl border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-lg font-bold shrink-0">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] font-bold text-purple-400 uppercase tracking-wider">Obsession</p>
+                            <p class="text-base font-bold text-slate-800">特定個人への推し活</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: ひとこと (Hero Section of the Card) -->
+                <div class="bg-gradient-to-br from-rose-500 to-rose-600 p-5 rounded-2xl text-white shadow-lg shadow-rose-500/25 relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 text-rose-700/40 text-6xl select-none pointer-events-none">
+                        <i class="fa-solid fa-chess-knight"></i>
+                    </div>
+                    <p class="text-xs font-bold text-rose-200 uppercase tracking-wider mb-1">Comment</p>
+                    <p class="text-lg font-black leading-snug tracking-wide">
+                        ボードゲーム業界を本気で変えにきました！
+                    </p>
+                    <!-- "ダンッ。" Action Highlight -->
+                    <div class="mt-3 text-right">
+                        <span id="bangBtn" onclick="triggerBangEffect()" class="inline-block bg-amber-400 hover:bg-amber-300 text-slate-900 font-black text-sm px-4 py-1.5 rounded-full shadow-md transform active:scale-95 cursor-pointer transition-all border-2 border-slate-900 select-none">
+                            ダンッ。💥
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive Action Area -->
+            <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-slate-500">
+                <button onclick="likeCard()" id="likeButton" class="flex items-center gap-2 bg-slate-100 hover:bg-rose-50 text-slate-700 px-4 py-2.5 rounded-xl transition-colors active:scale-95">
+                    <i id="likeIcon" class="fa-regular fa-heart text-rose-500 text-base"></i>
+                    <span>いいね <span id="likeCount" class="font-en text-rose-600">128</span></span>
+                </button>
+
+                <button onclick="copySelfIntro()" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl transition-colors active:scale-95">
+                    <i class="fa-regular fa-copy"></i>
+                    <span id="copyText">シェア</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Footer Footer text -->
+        <p class="text-center text-xs text-slate-400 mt-6 font-en">
+            &copy; 靴下屋 | NAGOMI All Rights Reserved.
+        </p>
+    </main>
+
+    <!-- Custom Toast Message -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2 border border-slate-700">
+        <i class="fa-solid fa-circle-check text-rose-400"></i>
+        <span id="toastMsg">メッセージ</span>
+    </div>
+
+    <script>
+        // Interactive Like Functionality
+        let liked = false;
+        let count = 128;
+
+        function likeCard() {
+            const likeIcon = document.getElementById('likeIcon');
+            const likeCount = document.getElementById('likeCount');
+            const likeButton = document.getElementById('likeButton');
+
+            if (!liked) {
+                count++;
+                likeIcon.classList.remove('fa-regular');
+                likeIcon.classList.add('fa-solid', 'animate-bounce');
+                likeButton.classList.add('bg-rose-50', 'text-rose-600');
+                showToast("いいね！を送りました ❤️");
+                liked = true;
+            } else {
+                count--;
+                likeIcon.classList.remove('fa-solid', 'animate-bounce');
+                likeIcon.classList.add('fa-regular');
+                likeButton.classList.remove('bg-rose-50', 'text-rose-600');
+                liked = false;
+            }
+            likeCount.innerText = count;
+        }
+
+        // Action effect for "ダンッ。"
+        function triggerBangEffect() {
+            const btn = document.getElementById('bangBtn');
+            btn.classList.add('scale-125', 'rotate-6');
+            setTimeout(() => {
+                btn.classList.remove('scale-125', 'rotate-6');
+            }, 200);
+
+            showToast("ボードゲーム業界に激震が走った！🎲💥");
+        }
+
+        // Copy Introduction Link/Text
+        function copySelfIntro() {
+            const textToCopy = "【自己紹介】靴下屋 (NAGOMI) | 社会システム経営学環\n「ボードゲーム業界を本気で変えにきました！ダンッ。」";
+            
+            // Clipboard Fallback
+            const dummy = document.createElement('textarea');
+            document.body.appendChild(dummy);
+            dummy.value = textToCopy;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            showToast("プロフィールのテキストをコピーしました！");
+        }
+
+        // Helper Toast Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = message;
+            
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
