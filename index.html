@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 検索エンジンに載りにくくする設定（リンクを知っている人は見られる） -->
+<meta name="robots" content="noindex, nofollow">
+<title>起業部メンバー図鑑</title>
+<style>
+  :root {
+    --accent: #F39700;
+    --accent-deep: #C27900;
+    --accent-soft: #FDEBD2;
+    --bg: #FFFFFF;
+    --card: #FAF8F4;
+    --cream: #F1EBDF;
+    --ink: #0E0F12;
+    --ink-2: #4A4F57;
+    --ink-3: #8A8F98;
+    --line: #E2DED5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --accent-deep: #FFB54A;
+      --accent-soft: #3A2A12;
+      --bg: #141518;
+      --card: #1D1F23;
+      --cream: #26231D;
+      --ink: #F2F1EE;
+      --ink-2: #C4C6CB;
+      --ink-3: #8F939B;
+      --line: #33363C;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 56px 0 28px; }
+  .eyebrow { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .2em; }
+  h1 { margin: 6px 0 8px; font-size: clamp(30px, 6vw, 44px); line-height: 1.2; letter-spacing: -.01em; }
+  .lead { margin: 0; color: var(--ink-2); font-size: 16px; }
+
+  .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 28px 0 20px; }
+  .search {
+    flex: 1 1 240px; min-width: 0;
+    padding: 12px 16px; font: inherit; font-size: 15px;
+    color: var(--ink); background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px; outline: none;
+  }
+  .search:focus { border-color: var(--accent); }
+  .btn {
+    padding: 12px 18px; font: inherit; font-size: 15px; font-weight: 700;
+    color: #FFFFFF; background: var(--accent); border: 0; border-radius: 12px; cursor: pointer;
+  }
+  .btn:hover { filter: brightness(.95); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .count { color: var(--ink-3); font-size: 14px; white-space: nowrap; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; padding-bottom: 32px; }
+  .card {
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 20px; min-height: 196px;
+    color: inherit; text-decoration: none;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-3px); border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(243, 151, 0, .15); outline: none;
+  }
+  .avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 26px; font-weight: 700; color: var(--accent-deep);
+    background: var(--accent-soft);
+  }
+  .name { margin: 4px 0 0; font-size: 19px; font-weight: 700; word-break: break-word; }
+  .comment { margin: 0; color: var(--ink-2); font-size: 14px; flex: 1; word-break: break-word; }
+  .more { color: var(--accent-deep); font-size: 14px; font-weight: 700; }
+
+  .empty {
+    grid-column: 1 / -1; padding: 40px 20px; text-align: center;
+    color: var(--ink-2); background: var(--card); border: 1px dashed var(--line); border-radius: 16px;
+  }
+
+  .notice {
+    margin: 8px 0 48px; padding: 18px 20px;
+    background: var(--cream); border-radius: 14px; color: var(--ink-2); font-size: 14px;
+  }
+  .notice strong { color: var(--ink); }
+  footer { padding: 0 0 40px; color: var(--ink-3); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MEMBERS</div>
+    <h1>起業部メンバー図鑑</h1>
+    <p class="lead">テックチャンネル「作ってみよう会」で、AIと一緒に作った自己紹介ページです。</p>
+  </header>
+
+  <div class="toolbar">
+    <input id="search" class="search" type="search" placeholder="名前やひとことで検索" aria-label="メンバーを検索">
+    <button id="random" class="btn" type="button">ランダムで1人見る</button>
+    <span id="count" class="count"></span>
+  </div>
+
+  <main id="grid" class="grid" aria-live="polite"></main>
+
+  <div class="notice">
+    <strong>このページについて</strong><br>
+    各ページはリンクを知っている人なら誰でも見られます。掲載をやめたいときは、テックチャンネル運営に連絡してください。
+  </div>
+
+  <footer>岐阜大学 起業部 テックチャンネル</footer>
+</div>
+
+<script>
+  // ================================================================
+  // メンバー一覧（ここだけ書き換える）
+  //   folder  : members フォルダの中のフォルダ名（英小文字・数字・- _ のみ）
+  //   name    : 表示する名前（ニックネーム）
+  //   comment : ひとこと（なくてもよい）
+  //   icon    : 絵文字1つ（なくてもよい。ないときは名前の1文字目を表示）
+  // 1人追加するごとに { ... }, の行を1行足す。最後の行の後ろの「,」はあってもなくてもよい
+  // ================================================================
+  const MEMBERS = [
+    { folder: "taro", name: "テック太郎", comment: "起業部でアプリを作りたいです！（見本のページ）", icon: "🧑‍💻" },
+    // { folder: "hanako", name: "はなこ", comment: "ひとこと", icon: "🌸" },
+  ];
+
+  // ---------------- ここから下は変更しなくてよい ----------------
+  const grid = document.getElementById("grid");
+  const search = document.getElementById("search");
+  const count = document.getElementById("count");
+  const randomBtn = document.getElementById("random");
+
+  const valid = MEMBERS.filter((m) => m && /^[a-z0-9_-]+$/.test(m.folder || "") && (m.name || "").trim());
+  const urlOf = (m) => "members/" + m.folder + "/";
+
+  function card(m) {
+    const a = document.createElement("a");
+    a.className = "card";
+    a.href = urlOf(m);
+
+    const av = document.createElement("div");
+    av.className = "avatar";
+    av.textContent = (m.icon || "").trim() || Array.from(m.name.trim())[0];
+
+    const name = document.createElement("p");
+    name.className = "name";
+    name.textContent = m.name;
+
+    const comment = document.createElement("p");
+    comment.className = "comment";
+    comment.textContent = m.comment || "";
+
+    const more = document.createElement("span");
+    more.className = "more";
+    more.textContent = "ページを見る →";
+
+    a.append(av, name, comment, more);
+    return a;
+  }
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const list = valid.filter((m) => !q || (m.name + " " + (m.comment || "")).toLowerCase().includes(q));
+    grid.replaceChildren();
+    if (list.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = valid.length === 0 ? "まだメンバーがいません。もうすぐ公開されます。" : "見つかりませんでした。";
+      grid.append(empty);
+    } else {
+      list.forEach((m) => grid.append(card(m)));
+    }
+    count.textContent = valid.length ? `${list.length} / ${valid.length}人` : "";
+    randomBtn.disabled = valid.length === 0;
+  }
+
+  search.addEventListener("input", render);
+  randomBtn.addEventListener("click", () => {
+    if (!valid.length) return;
+    location.href = urlOf(valid[Math.floor(Math.random() * valid.length)]);
+  });
+  render();
+</script>
+</body>
+</html>
