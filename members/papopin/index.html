@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パポピンのプロフィール</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+
+        /* 浮遊アニメーション */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* ピクミン風の葉っぱアニメーション */
+        @keyframes leafPop {
+            0% { transform: scale(0) translateY(0); opacity: 1; }
+            100% { transform: scale(1.5) translateY(-50px); opacity: 0; }
+        }
+        .leaf-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: leafPop 0.8s ease-out forwards;
+            z-index: 9999;
+        }
+
+        /* 画面タップで咲く花のアニメーション */
+        @keyframes flowerBloom {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            30% {
+                transform: translate(-50%, -100%) scale(1.2) rotate(15deg);
+                opacity: 1;
+            }
+            60% {
+                transform: translate(-50%, -100%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -150%) scale(0.8) rotate(-10deg);
+                opacity: 0;
+            }
+        }
+        .flower-bloom {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            animation: flowerBloom 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            user-select: none;
+        }
+
+        /* カスタムスクロールバー */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #86efac;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-slate-700 flex flex-col justify-between min-h-screen p-4 sm:p-6 md:p-8">
+<div style="width:100%;max-width:1080px;margin:0 auto;padding:12px 16px;box-sizing:border-box;text-align:left;position:relative;z-index:40"><a href="../../" style="display:inline-block;padding:6px 14px;border-radius:999px;background:#ffffff;color:#333333;font:700 13px/1.6 'Hiragino Sans','Noto Sans JP',sans-serif;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.18)">← メンバー図鑑に戻る</a></div>
+
+    <!-- メインコンテンツコンテナ -->
+    <main class="max-w-md mx-auto w-full space-y-6 my-auto">
+
+        <!-- プロフィールカード -->
+        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-xl border border-emerald-100 relative overflow-hidden transition-all hover:shadow-2xl">
+            <!-- 背景装飾アイコン -->
+            <div class="absolute -top-6 -right-6 text-emerald-100/60 select-none pointer-events-none">
+                <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.894 2.553a1 1 0 00-.788 0l-7 3.5A1 1 0 003 7v7a1 1 0 00.553.894l7 3.5a1 1 0 00.894 0l7-3.5A1 1 0 0018 14V7a1 1 0 00-.553-.894l-7-3.5z"/>
+                </svg>
+            </div>
+
+            <!-- アバター & ヘッダー -->
+            <div class="flex flex-col items-center text-center space-y-3 relative z-10">
+                <div class="relative animate-float">
+                    <!-- アバター画像アイコン枠 -->
+                    <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-300 p-1.5 shadow-lg">
+                        <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-5xl sm:text-6xl select-none shadow-inner">
+                            🌱
+                        </div>
+                    </div>
+                    <!-- 芽バッジ -->
+                    <span class="absolute -top-1 -right-1 bg-amber-400 text-amber-950 text-xs font-extrabold px-2.5 py-1 rounded-full shadow-md border-2 border-white">
+                        工学部 2年
+                    </span>
+                </div>
+
+                <div>
+                    <h1 class="text-3xl font-extrabold text-slate-800 tracking-wide">
+                        パポピン
+                    </h1>
+                    <p class="text-xs font-semibold text-emerald-600 mt-1 bg-emerald-50 px-3 py-1 rounded-full inline-block">
+                        @papopin_engineering
+                    </p>
+                </div>
+            </div>
+
+            <!-- 情報リスト -->
+            <div class="mt-6 space-y-3 relative z-10">
+                <!-- 好きなもの -->
+                <div class="bg-amber-50/80 rounded-2xl p-4 flex items-center space-x-3 border border-amber-100/80 transition-transform hover:scale-[1.02]">
+                    <div class="bg-amber-400 text-white p-2.5 rounded-xl shadow-sm text-xl flex-shrink-0">
+                        🍕
+                    </div>
+                    <div>
+                        <div class="text-xs text-amber-600/80 font-bold">好きなもの</div>
+                        <div class="text-base font-bold text-slate-800">食べ物 <span class="text-sm font-normal text-slate-500">(美味しいもの巡り)</span></div>
+                    </div>
+                </div>
+
+                <!-- ハマっているもの -->
+                <div class="bg-emerald-50/80 rounded-2xl p-4 flex items-center space-x-3 border border-emerald-100/80 transition-transform hover:scale-[1.02]">
+                    <div class="bg-emerald-500 text-white p-2.5 rounded-xl shadow-sm text-xl flex-shrink-0">
+                        🔴
+                    </div>
+                    <div>
+                        <div class="text-xs text-emerald-600/80 font-bold">ハマっているもの</div>
+                        <div class="text-base font-bold text-slate-800">ピクミン <span class="text-sm font-normal text-slate-500">🌱❤️💙💛</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 一言メッセージ -->
+            <div class="mt-6 bg-gradient-to-r from-red-500 to-amber-500 text-white rounded-2xl p-4 text-center shadow-lg relative overflow-hidden group">
+                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="text-xs font-semibold text-amber-100 tracking-wider">MESSAGE</div>
+                <p class="text-lg font-extrabold mt-0.5 tracking-wide">
+                    「本気出していきます」🔥
+                </p>
+            </div>
+
+            <!-- アクションボタン領域 (いいねボタン) -->
+            <div class="mt-6 flex justify-center relative">
+                <button id="likeBtn" class="relative bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 active:scale-95 text-white font-bold py-3.5 px-8 rounded-full shadow-lg flex items-center space-x-2 transition-all">
+                    <span class="text-xl">🙌</span>
+                    <span>応援する！</span>
+                    <span id="likeCount" class="bg-white/20 text-white text-xs px-2.5 py-0.5 rounded-full ml-1">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- パポピンのステータス & ミニコンテンツ -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-slate-100 space-y-4">
+            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-wider flex items-center space-x-2">
+                <span>⚡ パポピンの現在ステータス</span>
+            </h2>
+
+            <!-- ゲージ1: やる気レベル -->
+            <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold text-slate-600">
+                    <span>やる気 (本気度)</span>
+                    <span class="text-red-500 font-extrabold">120% MAX</span>
+                </div>
+                <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden p-0.5 border border-slate-200">
+                    <div class="bg-gradient-to-r from-amber-400 to-red-500 h-full rounded-full w-[100%] animate-pulse"></div>
+                </div>
+            </div>
+
+            <!-- ゲージ2: ピクミン探索率 -->
+            <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold text-slate-600">
+                    <span>ピクミンへの愛</span>
+                    <span class="text-emerald-600">99,999 P</span>
+                </div>
+                <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden p-0.5 border border-slate-200">
+                    <div class="bg-gradient-to-r from-emerald-400 to-teal-500 h-full rounded-full w-[95%]"></div>
+                </div>
+            </div>
+
+            <!-- ゲージ3: 空腹度 -->
+            <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold text-slate-600">
+                    <span>満腹度</span>
+                    <span class="text-sky-600">常に腹ペコ</span>
+                </div>
+                <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden p-0.5 border border-slate-200">
+                    <div class="bg-gradient-to-r from-sky-300 to-blue-500 h-full rounded-full w-[30%]"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ミニピクミンタップお楽しみコーナー -->
+        <div class="text-center space-y-2">
+            <p class="text-xs text-slate-500 font-medium">画面をタップして花を咲かせよう！ 🌸🌱</p>
+        </div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="text-center text-xs text-slate-400 mt-8 pb-2">
+        © 2026 Papopin All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // いいねボタンのカウント機能
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+        let count = 0;
+
+        likeBtn.addEventListener('click', (e) => {
+            count++;
+            likeCount.textContent = count;
+        });
+
+        // 画面タップ・クリックで可愛らしい花を咲かせる機能
+        const flowerTypes = [
+            { emoji: '🌸', color: '#f472b6' }, // ピンク（桜）
+            { emoji: '🌼', color: '#fbbf24' }, // 黄色（マーガレット）
+            { emoji: '🌺', color: '#f43f5e' }, // 赤・ハイビスカス
+            { emoji: '🌻', color: '#f59e0b' }, // オレンジ・ひまわり
+            { emoji: '🌹', color: '#e11d48' }, // 深紅（バラ）
+            { emoji: '🌷', color: '#ec4899' }, // チューリップ
+            { emoji: '🪷', color: '#a855f7' }, // 蓮（薄紫）
+            { emoji: '🌱', color: '#22c55e' }  // 葉っぱ
+        ];
+
+        // タッチとクリック両対応のエフェクト発火
+        function spawnFlower(x, y) {
+            // タップした位置よりも少し高い位置（Y座標を上にオフセット）に設定
+            const offsetY = 45; // 45pxほど上に表示
+            const flowerX = x;
+            const flowerY = y - offsetY;
+
+            // メインの花の生成
+            const flower = document.createElement('div');
+            flower.className = 'flower-bloom';
+            
+            // ランダムに花の種類を選択
+            const randomType = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+            
+            // 花と光の演出を含んだSVG/HTMLを生成
+            const size = Math.random() * 20 + 40; // 40px〜60px
+            flower.style.left = `${flowerX}px`;
+            flower.style.top = `${flowerY}px`;
+            flower.style.fontSize = `${size}px`;
+            flower.textContent = randomType.emoji;
+
+            document.body.appendChild(flower);
+
+            // 花の周りに散る小さな光・プチキラキラ粒子
+            createSparkles(flowerX, flowerY, randomType.color);
+
+            // アニメーション終了後に要素削除
+            setTimeout(() => {
+                flower.remove();
+            }, 1200);
+        }
+
+        // 周囲に咲く散り粒子
+        function createSparkles(x, y, color) {
+            const sparkles = ['✨', '🍃', '･ﾟ', '･'];
+            const count = 4;
+
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'leaf-particle';
+                
+                const randomSparkle = sparkles[Math.floor(Math.random() * sparkles.length)];
+                particle.textContent = randomSparkle;
+
+                const offsetX = (Math.random() - 0.5) * 80;
+                const offsetY = (Math.random() - 0.5) * 80;
+
+                particle.style.left = `${x + offsetX}px`;
+                particle.style.top = `${y + offsetY}px`;
+                particle.style.fontSize = `${Math.random() * 10 + 14}px`;
+                particle.style.color = color;
+
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 800);
+            }
+        }
+
+        // PC（pointerdown / click）および スマホ（pointerdown）イベント登録
+        window.addEventListener('pointerdown', (e) => {
+            // ボタンなどの標準操作を妨げずに座標を取得して花を咲かせる
+            spawnFlower(e.clientX, e.clientY);
+        });
+    </script>
+</body>
+</html>
