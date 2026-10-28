@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゆら | Profile Page</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                        },
+                        warm: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Elements for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .blob {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-slate-700 dark:bg-slate-900 dark:text-slate-200 min-h-screen flex flex-col justify-between selection:bg-brand-200">
+<div style="width:100%;max-width:1080px;margin:0 auto;padding:12px 16px;box-sizing:border-box;text-align:left;position:relative;z-index:40"><a href="../../" style="display:inline-block;padding:6px 14px;border-radius:999px;background:#ffffff;color:#333333;font:700 13px/1.6 'Hiragino Sans','Noto Sans JP',sans-serif;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.18)">← メンバー図鑑に戻る</a></div>
+
+    <!-- Header / Theme Toggle -->
+    <header class="w-full max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold tracking-wide text-brand-500 dark:text-brand-300">
+            YURA<span class="text-xs ml-1 px-2 py-0.5 bg-brand-200 dark:bg-slate-700 text-brand-500 dark:text-brand-300 rounded-full">Portfolio</span>
+        </div>
+        <button id="themeToggle" class="p-2.5 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg text-slate-600 dark:text-amber-400 transition-all duration-300 focus:outline-none" aria-label="テーマ切り替え">
+            <i class="fa-solid fa-sun hidden dark:inline text-xl"></i>
+            <i class="fa-solid fa-moon inline dark:hidden text-xl"></i>
+        </button>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-4 flex-grow flex flex-col gap-10">
+
+        <!-- Hero Section -->
+        <section class="bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-10 shadow-xl shadow-brand-100/50 dark:shadow-none border border-brand-100 dark:border-slate-700/50 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+            <!-- Background Decorative Shape -->
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-100 dark:bg-slate-700/30 blob -z-0 opacity-70"></div>
+            
+            <!-- Avatar Icon -->
+            <div class="relative z-10 flex-shrink-0">
+                <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-tr from-brand-300 to-brand-100 dark:from-brand-500 dark:to-slate-700 p-1.5 shadow-lg">
+                    <div class="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <!-- Custom Placeholder SVG or Icon for Yura -->
+                        <div class="text-center">
+                            <i class="fa-solid fa-user-astronaut text-5xl sm:text-6xl text-brand-400 dark:text-brand-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Overview -->
+            <div class="text-center md:text-left z-10 flex-grow">
+                <span class="inline-block px-3 py-1 bg-brand-100 dark:bg-slate-700 text-brand-500 dark:text-brand-300 rounded-full text-xs font-bold tracking-wider mb-2">
+                    WELCOME TO MY PAGE
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white tracking-tight">
+                    ゆら <span class="text-lg font-normal text-slate-500 dark:text-slate-400">(@yura)</span>
+                </h1>
+                <p class="mt-2 text-base text-brand-500 dark:text-brand-300 font-medium">
+                    <i class="fa-solid fa-graduation-cap mr-1"></i> 工学部 2年生
+                </p>
+                <p class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+                    はじめまして！モノづくりや技術について学んでいる工学部2年生です。休日には美味しいお店を探したり、ふらっと旅行に出かけたりしてリフレッシュしています！
+                </p>
+            </div>
+        </section>
+
+        <!-- Information / Details Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- About Me Card -->
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-700/60 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-slate-700 flex items-center justify-center text-brand-500 dark:text-brand-300">
+                            <i class="fa-solid fa-laptop-code text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800 dark:text-white">所属・専攻</h2>
+                    </div>
+                    <ul class="space-y-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-400 mt-1"></i>
+                            <span><strong>学部:</strong> 工学部</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-400 mt-1"></i>
+                            <span><strong>学年:</strong> 2年生</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-400 mt-1"></i>
+                            <span><strong>興味分野:</strong> Web開発 / テクノロジー全般</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700">
+                    <p class="text-xs text-slate-400 dark:text-slate-500">大学生活も2年目になり、専門的な学びが増えて日々奮闘中です！</p>
+                </div>
+            </div>
+
+            <!-- Favorite Quick Highlights Card -->
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-700/60 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-slate-700 flex items-center justify-center text-amber-500 dark:text-amber-400">
+                            <i class="fa-solid fa-heart text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800 dark:text-white">好きなこと</h2>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                        タップすると詳細やおすすめがチェックできます👇
+                    </p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="openModal('udon')" class="p-3 bg-brand-50 dark:bg-slate-700/50 hover:bg-brand-100 dark:hover:bg-slate-700 rounded-xl border border-brand-200/60 dark:border-slate-600 text-left transition-all duration-200 group">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🍜</div>
+                            <div class="font-bold text-slate-800 dark:text-white text-sm">うどん</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400">コシ命！食べ歩き</div>
+                        </button>
+                        <button onclick="openModal('travel')" class="p-3 bg-brand-50 dark:bg-slate-700/50 hover:bg-brand-100 dark:hover:bg-slate-700 rounded-xl border border-brand-200/60 dark:border-slate-600 text-left transition-all duration-200 group">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">✈️</div>
+                            <div class="font-bold text-slate-800 dark:text-white text-sm">旅行</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400">国内・海外めぐり</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700">
+                    <p class="text-xs text-slate-400 dark:text-slate-500">美味しいものを食べて知らない場所へ行くのが最高の癒やし。</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Interactive Section: Favorites Gallery -->
+        <section class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-md border border-slate-100 dark:border-slate-700/60">
+            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-sparkles text-brand-400"></i> My Favorites & Wishlist
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Udon Detailed Box -->
+                <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-700/40 dark:to-slate-700/80 p-5 border border-amber-200/50 dark:border-slate-600">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-3xl">🍜</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-amber-200/60 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 rounded-full">Gourmet</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2">うどん愛</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        讃岐うどんのしっかりしたコシが大好きです！本場のうどんツアーにはまだ参加したことがないのですが、いつか絶対行ってみたいと思っています！
+                    </p>
+                    <button onclick="openModal('udon')" class="inline-flex items-center text-xs font-bold text-amber-600 dark:text-amber-300 hover:underline">
+                        もっと詳しく見る <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Travel Detailed Box -->
+                <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-sky-50 to-blue-50 dark:from-slate-700/40 dark:to-slate-700/80 p-5 border border-sky-200/50 dark:border-slate-600">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-3xl">✈️</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-sky-200/60 dark:bg-sky-900/40 text-sky-800 dark:text-sky-200 rounded-full">Trip</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2">行きたい旅行先</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        休みの日はカメラを持って街探検へ。今いちばん行きたいのは歴史と絶景の「山口」と、夜景とグルメが魅力の「函館」です！
+                    </p>
+                    <button onclick="openModal('travel')" class="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-300 hover:underline">
+                        行きたいスポットを見る <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bucket List Section -->
+            <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700">
+                <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-brand-500"></i> やってみたいこと・行きたい場所（Bucket List）
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                        <input type="checkbox" class="w-4 h-4 rounded text-brand-500 focus:ring-brand-400">
+                        <span class="text-slate-700 dark:text-slate-200">本場の「香川うどんツアー」に参加する</span>
+                    </label>
+                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                        <input type="checkbox" class="w-4 h-4 rounded text-brand-500 focus:ring-brand-400">
+                        <span class="text-slate-700 dark:text-slate-200">山口・角島大橋と元乃隅神社を巡る</span>
+                    </label>
+                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                        <input type="checkbox" class="w-4 h-4 rounded text-brand-500 focus:ring-brand-400">
+                        <span class="text-slate-700 dark:text-slate-200">函館山からの夜景を見て海鮮丼を食べる</span>
+                    </label>
+                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                        <input type="checkbox" class="w-4 h-4 rounded text-brand-500 focus:ring-brand-400" checked>
+                        <span class="text-slate-700 dark:text-slate-200">自己紹介Webページをつくる（達成！）</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-6 text-xs text-slate-400 dark:text-slate-500 border-t border-slate-200/60 dark:border-slate-800 mt-10">
+        &copy; 2026 ゆら (Yura). All rights reserved.
+    </footer>
+
+    <!-- Modal Box for Interactive Details -->
+    <div id="infoModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl transform scale-95 transition-transform duration-300 relative" id="modalCard">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Modal Content Holder -->
+            <div id="modalContent">
+                <!-- Content will be injected dynamically by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Theme Switcher Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // Detect system preference or saved theme
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Modal Logic & Content
+        const modal = document.getElementById('infoModal');
+        const modalCard = document.getElementById('modalCard');
+        const modalContent = document.getElementById('modalContent');
+
+        const detailsData = {
+            udon: {
+                title: "🍜 うどんへのこだわり",
+                badge: "Favorite Food",
+                desc: "普段から美味しいお店を探して食べています！まだ『本場のうどんツアー』に参加したことがないので、大学在学中に必ず香川へ行って有名店をハシゴしたいです。",
+                list: ["好きなメニュー：とり天ぶっかけ＆しょうゆうどん", "目標：いつか香川県で1日5杯以上のうどんツアーに挑戦！", "コシのある太麺と出汁の相性が最高"]
+            },
+            travel: {
+                title: "✈️ 行きたい旅行先リスト",
+                badge: "Hobby & Destinations",
+                desc: "次の旅行先として計画・検討している大注目のエリアです！",
+                list: [
+                    "<strong>山口県:</strong> 角島大橋の絶景、元乃隅神社の赤い鳥居、瓦そばを堪能したい！",
+                    "<strong>函館（北海道）:</strong> 函館山からの100万ドルの夜景、五稜郭、朝市の新鮮な海鮮丼！",
+                    "カメラを持って街並みや風景を撮影するのが楽しみです。"
+                ]
+            }
+        };
+
+        function openModal(key) {
+            const data = detailsData[key];
+            if (!data) return;
+
+            let listItemsHtml = data.list.map(item => `<li class="flex items-start gap-2 mb-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300"><i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>${item}</li>`).join('');
+
+            modalContent.innerHTML = `
+                <span class="inline-block px-2.5 py-0.5 text-xs font-semibold bg-brand-100 text-brand-600 dark:bg-slate-700 dark:text-brand-300 rounded-full mb-2">
+                    ${data.badge}
+                </span>
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">${data.title}</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">${data.desc}</p>
+                <div class="bg-slate-50 dark:bg-slate-700/50 p-3.5 rounded-xl mb-4 border border-slate-100 dark:border-slate-700">
+                    <ul class="space-y-1">
+                        ${listItemsHtml}
+                    </ul>
+                </div>
+                <button onclick="closeModal()" class="w-full py-2.5 bg-brand-500 hover:bg-brand-600 text-white font-medium rounded-xl text-sm transition-colors shadow-md">
+                    閉じる
+                </button>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal when clicking background overlay
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
