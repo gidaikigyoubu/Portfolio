@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>テック太郎の自己紹介</title>
+<style>
+  :root {
+    --accent: #F39700;
+    --accent-deep: #C27900;
+    --accent-soft: #FDEBD2;
+    --bg: #FFF8EF;
+    --card: #FFFFFF;
+    --ink: #1E1E22;
+    --ink-2: #5A5F68;
+    --line: #F0E2CC;
+    --ok: #1E9E5A;
+    --ok-soft: #E3F5EA;
+    --ng: #D64545;
+    --ng-soft: #FBE6E6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --accent-deep: #FFB54A;
+      --accent-soft: #3A2A12;
+      --bg: #17181B;
+      --card: #202226;
+      --ink: #F2F1EE;
+      --ink-2: #C4C6CB;
+      --line: #34373D;
+      --ok-soft: #173826;
+      --ng-soft: #3E1E1E;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 24px 16px 48px; }
+  .back { display: inline-block; margin-bottom: 16px; color: var(--accent-deep); font-size: 14px; font-weight: 700; text-decoration: none; }
+
+  .profile { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; text-align: center; }
+  .profile .banner { height: 88px; background: var(--accent); }
+  .profile .avatar {
+    width: 96px; height: 96px; margin: -48px auto 0; border-radius: 50%;
+    display: grid; place-items: center; font-size: 46px;
+    background: var(--accent-soft); border: 4px solid var(--card);
+  }
+  .profile h1 { margin: 10px 0 6px; font-size: 28px; }
+  .tag { display: inline-block; margin-bottom: 22px; padding: 2px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-deep); font-weight: 700; font-size: 14px; }
+
+  h2 { margin: 32px 0 12px; font-size: 16px; color: var(--ink-2); }
+  .likes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .like { padding: 16px 8px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; text-align: center; font-weight: 700; }
+  .like .em { display: block; font-size: 30px; line-height: 1.3; }
+
+  .row { display: flex; gap: 14px; align-items: center; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+  .row .em { width: 48px; height: 48px; flex: none; display: grid; place-items: center; font-size: 26px; border-radius: 12px; background: var(--accent-soft); }
+  .row b { display: block; font-size: 17px; }
+  .row span { color: var(--ink-2); font-size: 14px; }
+
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 16px; }
+  figcaption { margin-top: 6px; color: var(--ink-2); font-size: 13px; }
+
+  .bubble { position: relative; padding: 16px 20px; background: var(--accent); color: #FFFFFF; font-weight: 700; font-size: 17px; border-radius: 16px; }
+  .bubble::after { content: ""; position: absolute; left: 32px; bottom: -10px; border: 10px solid transparent; border-top-color: var(--accent); border-bottom: 0; }
+
+  .quiz { padding: 18px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+  .q { margin: 0 0 10px; font-weight: 700; font-size: 17px; }
+  .choices { display: grid; gap: 8px; }
+  .choice {
+    width: 100%; padding: 12px 14px; text-align: left; font: inherit; font-weight: 700;
+    color: var(--ink); background: var(--bg); border: 2px solid var(--line); border-radius: 12px; cursor: pointer;
+  }
+  .choice:hover:not(:disabled) { border-color: var(--accent); }
+  .choice:disabled { cursor: default; }
+  .choice.ok { border-color: var(--ok); background: var(--ok-soft); }
+  .choice.ng { border-color: var(--ng); background: var(--ng-soft); }
+  .result { min-height: 1.7em; margin: 10px 0 0; font-weight: 700; }
+  .result.ok { color: var(--ok); }
+  .result.ng { color: var(--ng); }
+  .score { margin-top: 14px; text-align: center; font-weight: 700; color: var(--accent-deep); }
+  .retry { display: none; margin: 10px auto 0; padding: 10px 18px; font: inherit; font-weight: 700; color: #FFFFFF; background: var(--accent); border: 0; border-radius: 12px; cursor: pointer; }
+
+  footer { margin-top: 36px; text-align: center; color: var(--ink-2); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../">← メンバー図鑑に戻る</a>
+
+  <section class="profile">
+    <div class="banner"></div>
+    <div class="avatar" aria-hidden="true">🧑‍💻</div>
+    <h1>テック太郎</h1>
+    <span class="tag">工学部 2年</span>
+  </section>
+
+  <h2>好きなもの</h2>
+  <div class="likes">
+    <div class="like"><span class="em">🍛</span>カレー</div>
+    <div class="like"><span class="em">✈️</span>旅行</div>
+    <div class="like"><span class="em">📷</span>写真</div>
+  </div>
+
+  <h2>最近ハマっていること</h2>
+  <div class="row">
+    <div class="em" aria-hidden="true">🧖</div>
+    <div><b>サウナ</b><span>ととのう時間がいちばん好き</span></div>
+  </div>
+
+  <h2>最近撮った写真</h2>
+  <figure>
+    <img src="photo1.jpg" alt="夕焼けと山のイラスト" width="1200" height="675" loading="lazy">
+    <figcaption>※ 見本用の画像です（同じフォルダの photo1.jpg を表示しています）</figcaption>
+  </figure>
+
+  <h2>ひとこと</h2>
+  <div class="bubble">起業部でアプリを作りたいです！</div>
+
+  <h2>私についての3択クイズ</h2>
+  <div id="quiz"></div>
+  <div id="score" class="score"></div>
+  <button id="retry" class="retry" type="button">もう一度挑戦する</button>
+
+  <footer>© テック太郎（見本のページ）</footer>
+</div>
+
+<script>
+  // クイズの問題（answer は正解の番号。0 が1つ目）
+  const QUIZ = [
+    { q: "好きな食べ物は？", choices: ["カレー", "ラーメン", "寿司"], answer: 0, ok: "正解！カレーが大好きです🍛" },
+    { q: "最近ハマっていることは？", choices: ["筋トレ", "サウナ", "ゲーム"], answer: 1, ok: "正解！週末はサウナでととのっています🧖" },
+    { q: "起業部でやりたいことは？", choices: ["アプリを作る", "カフェを開く", "本を出す"], answer: 0, ok: "正解！アプリを作ってみたいです📱" },
+  ];
+
+  const quizEl = document.getElementById("quiz");
+  const scoreEl = document.getElementById("score");
+  const retryBtn = document.getElementById("retry");
+  let answered = 0, correct = 0;
+
+  function build() {
+    quizEl.replaceChildren();
+    answered = 0; correct = 0;
+    scoreEl.textContent = "";
+    retryBtn.style.display = "none";
+    QUIZ.forEach((item, qi) => {
+      const box = document.createElement("div");
+      box.className = "quiz";
+      box.style.marginBottom = "12px";
+      const q = document.createElement("p");
+      q.className = "q";
+      q.textContent = `Q${qi + 1}. ${item.q}`;
+      const list = document.createElement("div");
+      list.className = "choices";
+      const result = document.createElement("p");
+      result.className = "result";
+      item.choices.forEach((label, ci) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice";
+        b.textContent = label;
+        b.addEventListener("click", () => {
+          const buttons = list.querySelectorAll("button");
+          buttons.forEach((x) => (x.disabled = true));
+          buttons[item.answer].classList.add("ok");
+          if (ci === item.answer) {
+            correct++;
+            result.className = "result ok";
+            result.textContent = "⭕ " + item.ok;
+          } else {
+            b.classList.add("ng");
+            result.className = "result ng";
+            result.textContent = `❌ ざんねん！正解は「${item.choices[item.answer]}」`;
+          }
+          answered++;
+          if (answered === QUIZ.length) {
+            scoreEl.textContent = `${QUIZ.length}問中 ${correct}問正解！`;
+            retryBtn.style.display = "block";
+          }
+        });
+        list.append(b);
+      });
+      box.append(q, list, result);
+      quizEl.append(box);
+    });
+  }
+  retryBtn.addEventListener("click", build);
+  build();
+</script>
+</body>
+</html>
